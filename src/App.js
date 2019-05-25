@@ -1,6 +1,7 @@
 import React from 'react';
 import RowComponent from './RowComponent';
-
+import rand from 'random-key';
+import './App.css'
 
 class App extends React.Component {
 
@@ -34,12 +35,12 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.addRow.bind(this, 'asfa')}>Add record</button>
+                <button className="btnAdd" onClick={this.addRow.bind(this, 'Edit to customize your text')}>Add record</button>
                 {this.state.rows.map((text, index) => {
                     return (
-                        <div key={index}>
+                        <table key={rand.generate()}>
                             <RowComponent index={index} comment={text} deleteRow={this.removeRow} updateRow={this.updateRow} />
-                        </div>
+                        </table>
                     );
                 })
                 }
